@@ -1,1 +1,1 @@
-# max-eff-calculator
+# max eff calculator
