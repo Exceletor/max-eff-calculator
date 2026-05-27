@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max Efficiency Factory Ratio Sync</title>
+    <title>Factory Simulator Ultimate Sync</title>
     <style>
         :root {
-            --bg-color: #0d0f12;
-            --panel-bg: #161a22;
-            --accent-green: #00e676;
-            --accent-blue: #00b0ff;
-            --text-light: #f5f6f8;
-            --text-muted: #78909c;
-            --border-color: #263238;
+            --bg-color: #0b0c10;
+            --panel-bg: #1f2833;
+            --accent-green: #66fcf1;
+            --accent-blue: #45f3ff;
+            --text-light: #c5c6c7;
+            --text-muted: #66fcf1;
+            --border-color: #2f3e46;
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-light);
             margin: 0;
@@ -30,32 +30,20 @@
             max-width: 650px;
             background: var(--panel-bg);
             border-radius: 12px;
-            border: 1px solid var(--border-color);
             padding: 30px;
-            box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.7);
+            border: 1px solid var(--border-color);
         }
 
         h1 {
             margin-top: 0;
             font-size: 1.6rem;
-            color: var(--accent-green);
+            color: #fff;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 15px;
-        }
-
-        .efficiency-badge {
-            display: inline-block;
-            background: rgba(0, 230, 118, 0.08);
-            color: var(--accent-green);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            border: 1px solid rgba(0, 230, 118, 0.3);
+            text-align: center;
         }
 
         .grid-inputs {
@@ -68,57 +56,32 @@
         label {
             display: block;
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: #fff;
             margin-bottom: 8px;
             text-transform: uppercase;
             font-weight: 600;
-            letter-spacing: 0.5px;
         }
 
         select, input {
             width: 100%;
             padding: 12px 16px;
-            background: var(--bg-color);
+            background: #0b0c10;
             border: 1px solid var(--border-color);
             color: #fff;
             border-radius: 6px;
             font-size: 1rem;
             box-sizing: border-box;
-            transition: border-color 0.2s ease;
-        }
-
-        select:focus, input:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-        }
-
-        .results-section h2 {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
         }
 
         .ratio-row {
-            background: rgba(0, 0, 0, 0.15);
-            border: 1px solid var(--border-color);
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 6px;
             padding: 16px;
             margin-bottom: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: transform 0.2s ease;
-        }
-
-        .ratio-row:hover {
-            transform: translateX(2px);
-        }
-
-        .item-info {
-            display: flex;
-            flex-direction: column;
+            border-left: 5px solid var(--accent-blue);
         }
 
         .item-name {
@@ -129,12 +92,17 @@
 
         .item-rates {
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: #999;
             margin-top: 4px;
         }
 
-        .ratio-badge {
-            text-align: right;
+        .machine-type {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            background: rgba(255,255,255,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #ccc;
         }
 
         .machine-qty {
@@ -142,104 +110,89 @@
             font-weight: 700;
             color: var(--accent-blue);
         }
-        
-        .target-machine {
-            color: var(--accent-green);
-        }
-
-        .unit-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-left: 4px;
-        }
     </style>
 </head>
 <body>
 
 <div class="calculator-card">
-    <h1>100% Efficiency Ratio Sync</h1>
-    <div class="efficiency-badge">⚡ Zero Bottleneck Architecture</div>
+    <h1>Factory Simulator Ratio Sync</h1>
     
     <div class="grid-inputs">
         <div>
-            <label for="itemSelect">Target Output Item</label>
+            <label for="itemSelect">Target Item</label>
             <select id="itemSelect">
-                <option value="heavy_frame">Heavy Modular Frame</option>
-                <option value="modular_frame">Modular Frame</option>
-                <option value="reinforced_plate">Reinforced Iron Plate</option>
+                <option value="mechanical_assembly">Mechanical Assembly</option>
+                <option value="copper_wire">Copper Wire</option>
                 <option value="iron_plate">Iron Plate</option>
-                <option value="screw">Screws</option>
-                <option value="iron_rod">Iron Rod</option>
             </select>
         </div>
         <div>
-            <label for="machineCount">End Machines</label>
-            <input type="number" id="machineCount" value="1" min="1" step="1">
+            <label for="machineCount">Machines</label>
+            <input type="number" id="machineCount" value="1" min="1">
         </div>
     </div>
 
-    <div class="results-section">
-        <h2>Perfect Build Blueprint</h2>
+    <div>
+        <h2 style="font-size: 0.9rem; text-transform: uppercase; color: #888;">Required Setup Balance</h2>
         <div id="blueprintOutput"></div>
     </div>
 </div>
 
 <script>
-    // FACTORY DATA SYSTEM
-    // time = duration of a single craft cycle in seconds
-    // yield = exact item quantity generated per finished cycle
-    // ingredients = explicit array listing required sub-components
+    // THE SYNCHRONIZED ENGINE
+    // For Processors: provide 'time' (seconds) and 'yield'
+    // For Harvesters: provide 'flatRatePerMin' directly (no time)
     const factoryData = {
-        heavy_frame: {
-            name: "Heavy Modular Frame",
-            time: 30,
+        mechanical_assembly: {
+            name: "Mechanical Assembly",
+            machine: "Dual Assembler (Advanced)",
+            time: 8,
             yield: 1,
             ingredients: [
-                { id: "modular_frame", qty: 5 },
-                { id: "screw", qty: 100 }
-            ]
-        },
-        modular_frame: {
-            name: "Modular Frame",
-            time: 60,
-            yield: 2,
-            ingredients: [
-                { id: "reinforced_plate", qty: 3 },
-                { id: "iron_rod", qty: 12 }
-            ]
-        },
-        reinforced_plate: {
-            name: "Reinforced Iron Plate",
-            time: 12,
-            yield: 1,
-            ingredients: [
-                { id: "iron_plate", qty: 6 },
-                { id: "screw", qty: 12 }
+                { id: "iron_plate", qty: 2 },
+                { id: "copper_wire", qty: 4 }
             ]
         },
         iron_plate: {
             name: "Iron Plate",
-            time: 6,
-            yield: 2,
-            ingredients: [{ id: "iron_ingot", qty: 3 }]
-        },
-        screw: {
-            name: "Screw",
-            time: 6,
-            yield: 4,
-            ingredients: [{ id: "iron_rod", qty: 1 }]
-        },
-        iron_rod: {
-            name: "Iron Rod",
-            time: 4,
+            machine: "Press (Normal)",
+            time: 5,
             yield: 1,
-            ingredients: [{ id: "iron_ingot", qty: 1 }]
+            ingredients: [{ id: "iron_ingot", qty: 2 }]
+        },
+        copper_wire: {
+            name: "Copper Wire",
+            machine: "Extruder (Normal)",
+            time: 4,
+            yield: 2,
+            ingredients: [{ id: "copper_ingot", qty: 1 }]
         },
         iron_ingot: {
-            name: "Iron Ingot (Smelter)",
-            time: 2,
+            name: "Iron Ingot",
+            machine: "Furnace (Normal)",
+            time: 3,
             yield: 1,
-            ingredients: [] // Terminating node (raw layer)
+            ingredients: [{ id: "iron_ore", qty: 1 }]
+        },
+        copper_ingot: {
+            name: "Copper Ingot",
+            machine: "Furnace (Normal)",
+            time: 3,
+            yield: 1,
+            ingredients: [{ id: "copper_ore", qty: 1 }]
+        },
+        // HARVESTERS (No cycle time, just flat output per minute)
+        iron_ore: {
+            name: "Iron Ore",
+            machine: "Iron Mine (Harvester)",
+            flatRatePerMin: 30, 
+            ingredients: []
+        },
+        copper_ore: {
+            name: "Copper Ore",
+            machine: "Copper Mine (Harvester)",
+            flatRatePerMin: 30,
+            ingredients: []
         }
     };
 
@@ -250,70 +203,72 @@
     function calculatePerfectRatios() {
         const targetId = itemSelect.value;
         const finalMachineTarget = parseInt(machineCount.value) || 1;
-        
         const targetRecipe = factoryData[targetId];
+        
         if (!targetRecipe) return;
 
-        // Base flow calculation: Items produced per minute by the specified number of final stage machines
-        const targetItemsPerMin = (60 / targetRecipe.time) * targetRecipe.yield * finalMachineTarget;
+        // Calculate initial items per minute based on whether it's a timed or flat rate machine
+        let targetItemsPerMin = 0;
+        if (targetRecipe.time) {
+            targetItemsPerMin = (60 / targetRecipe.time) * targetRecipe.yield * finalMachineTarget;
+        } else {
+            targetItemsPerMin = targetRecipe.flatRatePerMin * finalMachineTarget;
+        }
 
         const totals = {};
 
-        // Recursive tree-traversal calculation loop
         function extractRates(id, requiredPerMin) {
             const recipe = factoryData[id];
             if (!recipe) return;
 
-            const singleMachineOutputPerMin = (60 / recipe.time) * recipe.yield;
-            const exactMachinesNeeded = requiredPerMin / singleMachineOutputPerMin;
+            let exactMachinesNeeded = 0;
+            
+            // MATH FOR BOTH FORMS:
+            if (recipe.time) {
+                // Processor math
+                const singleMachineOutputPerMin = (60 / recipe.time) * recipe.yield;
+                exactMachinesNeeded = requiredPerMin / singleMachineOutputPerMin;
+            } else {
+                // Harvester math
+                exactMachinesNeeded = requiredPerMin / recipe.flatRatePerMin;
+            }
 
             if (!totals[id]) {
-                totals[id] = { name: recipe.name, machines: 0, itemsPerMin: 0 };
+                totals[id] = { name: recipe.name, machine: recipe.machine, machines: 0, itemsPerMin: 0 };
             }
             totals[id].machines += exactMachinesNeeded;
             totals[id].itemsPerMin += requiredPerMin;
 
-            recipe.ingredients.forEach(ing => {
-                const neededIngRatePerMin = (requiredPerMin / recipe.yield) * ing.qty;
-                extractRates(ing.id, neededIngRatePerMin);
-            });
+            if (recipe.ingredients) {
+                recipe.ingredients.forEach(ing => {
+                    const neededIngRatePerMin = (requiredPerMin / (recipe.yield || 1)) * ing.qty;
+                    extractRates(ing.id, neededIngRatePerMin);
+                });
+            }
         }
 
-        // Run algorithmic calculation engine
         extractRates(targetId, targetItemsPerMin);
 
-        // Generate and sync dynamic HTML structure
         let html = '';
         for (const id in totals) {
             const item = totals[id];
-            const isTarget = (id === targetId);
-            
-            // Format decimals cleanly up to 2 decimal places, scrubbing off redundant trailing zeros
-            const displayMachines = parseFloat(item.machines.toFixed(2));
-            const displayItems = parseFloat(item.itemsPerMin.toFixed(2));
-
             html += `
-                <div class="ratio-row" style="${isTarget ? 'border-left: 4px solid var(--accent-green);' : 'border-left: 4px solid var(--accent-blue);'}">
-                    <div class="item-info">
-                        <span class="item-name">${item.name}</span>
-                        <span class="item-rates">Throughput: ${displayItems}/min required</span>
+                <div class="ratio-row">
+                    <div>
+                        <span class="item-name">${item.name}</span> <span class="machine-type">${item.machine}</span>
+                        <div class="item-rates">Required Flow: ${parseFloat(item.itemsPerMin.toFixed(2))}/min</div>
                     </div>
-                    <div class="ratio-badge">
-                        <span class="machine-qty ${isTarget ? 'target-machine' : ''}">${displayMachines}</span> 
-                        <span class="unit-label">Build</span>
+                    <div>
+                        <span class="machine-qty">${parseFloat(item.machines.toFixed(2))}</span>
                     </div>
                 </div>
             `;
         }
-
         blueprintOutput.innerHTML = html;
     }
 
-    // Assign operational event execution triggers
     itemSelect.addEventListener('change', calculatePerfectRatios);
     machineCount.addEventListener('input', calculatePerfectRatios);
-
-    // Initial operational initialization
     calculatePerfectRatios();
 </script>
 
